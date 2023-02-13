@@ -2,6 +2,7 @@
 	import { ref, computed } from "vue"
 	import { onReady } from '@dcloudio/uni-app'
 	import { blurBg2 } from "@/util"
+	import ProgressBar from '@/components/progressBar/progressBar.vue'
 
 
 	onReady(()=>{ blurBg2('canvasBg') })
@@ -29,6 +30,7 @@
 		idiomString.value = '津津乐道'
 		blurBg2('canvasBg')
 	}
+	const progressBarVisible = ref(false)
 
 </script>
 
@@ -51,6 +53,8 @@
 			</view>
 		</view>
 		<button @click="refresh">刷新</button>
+		<button @click="progressBarVisible = !progressBarVisible">打开 进度条</button>
+		<ProgressBar v-model:progressBarVisible="progressBarVisible" />
 	</view>
 </template>
 

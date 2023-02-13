@@ -15,10 +15,17 @@
 		},
 		to: {
 			type: String
+		},
+		go: {
+			type: Function
 		}
 	})
 	const $attrs = useAttrs()
 	const onClick = () => {
+		if(props?.go){
+			props.go()
+			return
+		}
 		const hasIsLink = Object.keys($attrs).some(v => ['is-Link', 'isLink', 'is-link'].includes(v))
 		if (hasIsLink) {
 			if (!props.to) {

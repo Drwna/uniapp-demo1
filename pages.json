@@ -26,6 +26,36 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "pages/mainPage/mainPage",
+			"style": {
+				"navigationBarTitleText": "硕亦科技",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": "硕亦科技",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/charts/charts",
+			"style": {
+				"navigationBarTitleText": "硕亦科技",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/person/person",
+			"style": {
+				"navigationBarTitleText": "硕亦科技",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
@@ -34,5 +64,38 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"tabBar": {
+		"color": "#707070",
+		"selectedColor": "#4243e8",
+		"fontSize": "16px",
+		"backgroundColor": "#ffffff",
+		"height": "64px",
+		"iconWidth": "28px",
+		"list": [{
+				"text": "主页",
+				"pagePath": "pages/mainPage/mainPage",
+				"iconPath": "static/icon/home.svg",
+				"selectedIconPath": "static/icon/home-fill.svg"
+			},
+			{
+				"text": "分类",
+				"pagePath": "pages/category/category",
+				"iconPath": "static/icon/category.svg",
+				"selectedIconPath": "static/icon/category-fill.svg"
+			},
+			{
+				"text": "图表",
+				"pagePath": "pages/charts/charts",
+				"iconPath": "static/icon/chart.svg",
+				"selectedIconPath": "static/icon/chart-fill.svg"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/person/person",
+				"iconPath": "static/icon/person.svg",
+				"selectedIconPath": "static/icon/person-fill.svg"
+			}
+		]
+	}
 }
