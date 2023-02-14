@@ -1,11 +1,19 @@
 <script setup>
 import mainNav from '@/components/mainNav/mainNav.vue';
 import MainHeader from '@/components/mainHeader/mainHeader.vue';
+import { ref, onMounted, watch, computed } from 'vue';
+
+const header = ref()
+const height = ref('0px')
+onMounted( async () => {
+	height.value = await header.value.getHeaderHeight()
+})
+
 </script>
 
 <template name="layout">
 	<view class="wrapper">
-		<MainHeader title="硕亦科技" />
+		<MainHeader ref="header" title="硕亦科技" />
 		<view class="container">
 			<slot />
 		</view>
@@ -16,11 +24,8 @@ import MainHeader from '@/components/mainHeader/mainHeader.vue';
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	// height: calc(100vh - 44px + env(safe-area-inset-top));
 	.container {
-    margin-top: 44px;
-    margin-top: calc(44px + constant(safe-area-inset-top));
-    margin-top: calc(44px + env(safe-area-inset-top));
+		margin-top: v-bind(height);
 		flex-grow: 1;
 		overflow: auto;
 	}

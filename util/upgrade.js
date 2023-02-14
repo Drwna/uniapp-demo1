@@ -4,7 +4,7 @@ export const upgrade = async () => {
   // #ifdef APP-PLUS  
   const remoteInfo = await uni.$get(`http://www.safereborn.com:8084/appInfo.json`)
   const {version: remoteVersion, apkName, title, desc} = remoteInfo
-  console.log(remoteInfo, remoteInfo.title, remoteInfo.desc)
+  // console.log(remoteInfo, remoteInfo.title, remoteInfo.desc)
   const appInfo = useAppInfoStore() // 获取appInfo
   appInfo.upgradeState.version = remoteVersion
   appInfo.upgradeState.desc = desc

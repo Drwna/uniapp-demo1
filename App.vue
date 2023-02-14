@@ -2,14 +2,14 @@
 	import { upgrade } from './util/upgrade.js'
 	export default {
 		onLaunch() {
-			console.log('App Launch')
+			// console.log('App Launch')
 			upgrade()
 		},
 		onShow: function() {
-			console.log('App Show')
+			// console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
 		}
 	}
 
