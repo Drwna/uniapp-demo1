@@ -1,5 +1,5 @@
 <script setup>
-	import { nextTick, onActivated, onMounted, ref, reactive, computed, watch, defineProps, defineComponent } from 'vue'
+	import { nextTick, ref, computed, watch, defineComponent } from 'vue'
 	import { getIdentifyCode } from '@/util/api.js'
 	import { blurBg2 } from '@/util'
 	import { onShow, onReady } from '@dcloudio/uni-app'

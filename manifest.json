@@ -2,7 +2,7 @@
     "name" : "demo-3",
     "appid" : "__UNI__0EE72D6",
     "description" : "",
-    "versionName" : "1.1.1",
+    "versionName" : "1.1.2",
     "versionCode" : "100",
     "transformPx" : false,
     /* 5+App特有相关 */
@@ -72,36 +72,5 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "3",
-    "h5" : {
-        // "devServer": {
-        // 	"proxy": {
-        // 		//配置代理服务器来解决跨域问题，uniapp不适用CORS方案和设置JSONP方案
-        // 		"remote": {
-        // 			//重写规则，调试不写规则，就会默认进入映射域名，调试一定要先让它代理生效
-        // 			"pathRewrite": {
-        // 				"remote": ""
-        // 			},
-        // 			//映射域名
-        // 			"target": "http://www.safereborn.com:8091",
-        // 			//是否跨域
-        // 			"changeOrigin": true
-        // 		}
-        // 	},
-        // 	"https": false
-        // }
-        "devServer" : {
-            "disableHostCheck" : true,
-            "proxy" : {
-                "remote" : {
-                    "target" : "http://www.safereborn.com:8091/",
-                    "changeOrigin" : true,
-                    "secure" : false,
-                    "pathRewrite" : {
-                        "/remote" : ""
-                    }
-                }
-            }
-        }
-    }
+    "vueVersion" : "3"
 }

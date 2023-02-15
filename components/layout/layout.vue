@@ -1,7 +1,6 @@
 <script setup>
-import mainNav from '@/components/mainNav/mainNav.vue';
 import MainHeader from '@/components/mainHeader/mainHeader.vue';
-import { ref, onMounted, watch, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const header = ref()
 const height = ref('0px')
@@ -13,7 +12,7 @@ onMounted( async () => {
 
 <template name="layout">
 	<view class="wrapper">
-		<MainHeader ref="header" title="硕亦科技" />
+		<MainHeader ref="header" title="xxx科技" />
 		<view class="container">
 			<slot />
 		</view>
@@ -22,13 +21,8 @@ onMounted( async () => {
 
 <style lang="scss">
 .wrapper {
-	display: flex;
-	flex-direction: column;
 	.container {
 		margin-top: v-bind(height);
-		flex-grow: 1;
-		overflow: auto;
 	}
-	.footer { }
 }
 </style>

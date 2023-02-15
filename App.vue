@@ -1,18 +1,18 @@
-<script>
+<script setup>
 	import { upgrade } from './util/upgrade.js'
-	export default {
-		onLaunch() {
-			// console.log('App Launch')
-			upgrade()
-		},
-		onShow: function() {
-			// console.log('App Show')
-		},
-		onHide: function() {
-			// console.log('App Hide')
-		}
-	}
+	import { onShow, onReady, onLaunch } from '@dcloudio/uni-app';
 
+	// 只能在App.vue里监听应用的生命周期
+	onLaunch(() => {
+		console.log('App Launch')
+		upgrade()
+	})
+	onShow(() => {
+		console.log('App Show')
+	})
+	onReady(() => {
+		console.log('App Ready')
+	})
 </script>
 
 <style>

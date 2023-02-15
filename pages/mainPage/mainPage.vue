@@ -5,20 +5,7 @@ import layout from '@/components/layout/layout.vue';
 
 <template name="mainPage">
 	<layout>
-		首页
-		<view> 首页  start start start start start start      </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
-		<view> 首页 </view>
+		<view> 首页 start  start  start  start  start  </view>
 		<view> 首页 </view>
 		<view> 首页 </view>
 		<view> 首页 </view>

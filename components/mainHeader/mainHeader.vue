@@ -1,5 +1,4 @@
 <script setup>
-	import { ref, defineProps, onMounted } from 'vue'
 	defineProps({
 		title: {
 			type: String,
@@ -39,7 +38,7 @@
 	.status_bar {
 		height: var(--status-bar-height);
 		width: 100%;
-		background: #fff;
+		background-color: rgba(248, 248, 248, 1);
 	}
 	.top-bar {
 		height: 44px;

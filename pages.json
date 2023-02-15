@@ -29,30 +29,24 @@
 		}, {
 			"path": "pages/mainPage/mainPage",
 			"style": {
-				"navigationBarTitleText": "硕亦科技",
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
-
 		}, {
 			"path": "pages/category/category",
 			"style": {
-				"navigationBarTitleText": "硕亦科技",
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
 		}, {
 			"path": "pages/charts/charts",
 			"style": {
-				"navigationBarTitleText": "硕亦科技",
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
-
 		}, {
 			"path": "pages/person/person",
 			"style": {
-				"navigationBarTitleText": "硕亦科技",
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
