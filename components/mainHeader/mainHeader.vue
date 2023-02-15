@@ -10,7 +10,7 @@
 		return new Promise((resolve, reject) => {
 			const query = uni.createSelectorQuery()
 			query.select('#header').boundingClientRect( rect => {
-				resolve(`${rect.height}px`)
+				resolve(rect.height)
 			}).exec()
 		})
 	}
@@ -31,9 +31,6 @@
 
 <style lang="scss">
 .wrapper {
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
 	.status_bar {
 		height: var(--status-bar-height);

@@ -2,17 +2,21 @@
 import MainHeader from '@/components/mainHeader/mainHeader.vue';
 import { ref, onMounted } from 'vue';
 
-const header = ref()
-const height = ref('0px')
+const mainHeader = ref()
+const mainHeaderHeight = ref(0)
+const containerHeight = ref(0)
+const system = uni.getSystemInfoSync()
+
 onMounted( async () => {
-	height.value = await header.value.getHeaderHeight()
+	mainHeaderHeight.value = await mainHeader.value.getHeaderHeight()
+	containerHeight.value = `${system.windowHeight - mainHeaderHeight.value}px`
 })
 
 </script>
 
 <template name="layout">
 	<view class="wrapper">
-		<MainHeader ref="header" title="xxx科技" />
+		<MainHeader ref="mainHeader" title="硕亦科技" />
 		<view class="container">
 			<slot />
 		</view>
@@ -22,7 +26,8 @@ onMounted( async () => {
 <style lang="scss">
 .wrapper {
 	.container {
-		margin-top: v-bind(height);
+		height: v-bind(containerHeight);
+		overflow: auto;
 	}
 }
 </style>
