@@ -4,44 +4,22 @@ import tabs from '@/components/tabs/tabs.vue';
 import tab from '@/components/tabs/tab.vue';
 import { ref } from 'vue';
 
-const scroll = () => {
-	
-}
-
-const activeTab = ref('a')
-
+const activeTitle = ref('')
 
 </script>
 
 <template name="mainPage">
 	<layout>
-
-		<tabs v-model:active="activeTab">
-			<tab name="a">hello</tab>
-			<tab name="c">uniApp</tab>
-			<tab name="b">world</tab>
-		</tabs>
-
+		<view>
+			<tabs v-model:activeTitle="activeTitle">
+				<tab title="aaa" name="选项卡1"> hello </tab>
+				<tab title="bbb" name="选项卡2">world bbb</tab>
+				<tab title="ccc" name="选项卡3">world bbb</tab>
+				<tab title="ddd" name="选项卡4">world bbb</tab>
+			</tabs>
+		</view>
 	</layout>
 </template>
 
 <style lang="scss">
-	.scroll-view_H {
-		white-space: nowrap;
-		width: 100%;
-	}
-	.scroll-view-item {
-		height: 300rpx;
-		line-height: 300rpx;
-		text-align: center;
-		font-size: 36rpx;
-	}
-	.scroll-view-item_H {
-		display: inline-block;
-		width: 100%;
-		height: 300rpx;
-		line-height: 300rpx;
-		text-align: center;
-		font-size: 36rpx;
-	}
 </style>
