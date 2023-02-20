@@ -21,6 +21,7 @@
 	<cell title="手机号注册及登录" is-link to="/pages/phone/phone" />
 	<cell title="邮箱注册及登录" is-link to="/pages/email/email"  />
 	<cell title="列表" is-link to="/pages/listPage/listPage"/>
+	<cell title="图表" is-link to="/pages/echartsPage/echartsPage"/>
 	<!-- <cell title="canvas 测试" is-link to="/pages/canvas/canvas"/> -->
 	<!-- #ifdef H5 -->
 	<view style="margin:20rpx;">当前版本：{{ appInfo.newestVersion }}</view>

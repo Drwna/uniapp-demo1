@@ -99,7 +99,16 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/echartsPage/echartsPage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "硕亦科技",
