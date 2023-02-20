@@ -28,6 +28,8 @@ onMounted( async () => {
 	.container {
 		height: v-bind(containerHeight);
 		overflow: auto;
+		display: flex;
+		flex-flow: column;
 	}
 }
 </style>

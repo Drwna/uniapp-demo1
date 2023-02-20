@@ -12,6 +12,29 @@ const URL = {
 	LoginByShortMsg: `${baseUrl}/auth/facadeauth/loginByShortMsg`,
 	CheckAndSendShortMsg: `${baseUrl}/auth/facadeauth/checkAndSendShortMsg`,
 	GetCurrUserInfo: `${baseUrl}/auth/facadeauth/getCurrUserInfo`,
+  LoginByPwd: `${baseUrl}/auth/facadeauth/login`,
+  SendRegisterEmail: `${baseUrl}auth/facadeauth/sendRegisterEmail`,
+	// '/auth/facadeauth/getIdentifyCodeForEMail'
+  getIdentifyCodeForEMail: `${baseUrl}/auth/facadeauth/getIdentifyCodeForEMail`,
+}
+
+export const getIdentifyCodeForEMail = (objParam = { userEMail: undefined }) => {
+	return uni.$post(URL.getIdentifyCodeForEMail, objParam)
+}
+
+export const sendRegisterEmail = (objParam = {
+	userEMail: undefined,
+	userPwd: undefined,
+	confirmPwd: undefined
+}) => {
+	return uni.$post(URL.SendRegisterEmail, objParam)
+}
+
+export const loginByPwd = (objParam = {
+	userNo: undefined,
+	userPwd: undefined
+}) => {
+	return uni.$post(URL.LoginByPwd, objParam)
 }
 
 export const getCurrUserInfo = () => {

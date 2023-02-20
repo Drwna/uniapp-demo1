@@ -6,7 +6,7 @@
 
 	defineComponent({ name: 'verify' })
 	const props = defineProps({
-		phone: {
+		phoneOrEmail: {
 			type: String,
 			required: true
 		},
@@ -67,7 +67,7 @@
 	const setWord = async () => {
 		console.log('set word')
 		const response = await getIdentifyCode({
-			mobilePhoneNo: props.phone
+			mobilePhoneNo: props.phoneOrEmail
 		})
 		idiomString.value = response.rtnObj1
 	}

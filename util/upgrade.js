@@ -1,14 +1,21 @@
 import { useAppInfoStore } from '@/store/appInfo'
 
 export const upgrade = async () => {
-  // #ifdef APP-PLUS  
-  const remoteInfo = await uni.$get(`http://www.safereborn.com:8084/appInfo.json`)
+  let baseUrl;
+  // #ifdef H5
+  baseUrl = "/api"
+  // #endif
+  // #ifdef APP-PLUS ||MP
+  baseUrl = "http://www.safereborn.com:8084/"
+  // #endif
+  const remoteInfo = await uni.$get(`${baseUrl}/appInfo.json`)
   const {version: remoteVersion, apkName, title, desc} = remoteInfo
   // console.log(remoteInfo, remoteInfo.title, remoteInfo.desc)
   const appInfo = useAppInfoStore() // 获取appInfo
   appInfo.upgradeState.version = remoteVersion
   appInfo.upgradeState.desc = desc
   appInfo.newestVersion = remoteVersion // 更新appInfo中的最新版本号
+  // #ifdef APP-PLUS  
   plus.runtime.getProperty(plus.runtime.appid, (wgtinfo) => {
     appInfo.currentVersion = wgtinfo.version // 更新appInfo中的当前版本号
     const remoteApkUrl = `http://www.safereborn.com:8084/${apkName}.apk`

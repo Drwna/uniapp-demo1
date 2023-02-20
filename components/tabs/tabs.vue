@@ -69,29 +69,29 @@ const updateView = (itemId) => {
 // 设置指示器位置
 
 // 设置指示器位置
-// const setIndicator = (itemId) => {
-// 	const index = nameMapIndex[itemId]
-// 	const query = uni.createSelectorQuery()
-// 	const arr = [`#${itemId}`, '#indicator']
-// 	for(let i = 0; i < arr.length; i++) {
-// 		query.select(arr[i]).boundingClientRect()
-// 	}
-// 	let left, itemCenterPoint, centerPoint, indicatorWidth
-// 	query.exec(
-// 		(res) => {
-// 			res.forEach(v => {
-// 				if(v.id === 'indicator' ){
-// 					indicatorWidth = v.width
-// 				} else {
-// 					left = v.width * index
-// 					itemCenterPoint = left + v.width / 2
-// 				}
-// 			})
-// 			centerPoint = itemCenterPoint - indicatorWidth / 2
-// 			indicatorLeft.value = `${centerPoint}px`
-// 		}
-// 	)
-// }
+const setIndicator = (itemId) => {
+	const query = uni.createSelectorQuery()
+	const arr = [`#${itemId}`, '#indicator']
+	for(let i = 0; i < arr.length; i++) {
+		query.select(arr[i]).boundingClientRect()
+	}
+	let cutItemLeft, cutItemWidth, cutItemCenterPoint, indicatorWidth, centerPoint
+	query.exec(
+		(res) => {
+			res.forEach(v => {
+				if(v.id === itemId) {
+					cutItemLeft = v.left
+					cutItemWidth = v.width
+				} else {
+					indicatorWidth = v.width
+				}
+			})
+			cutItemCenterPoint = cutItemLeft + cutItemWidth / 2
+			centerPoint = cutItemCenterPoint - indicatorWidth / 2
+			indicatorLeft.value = `${centerPoint}px`
+		}
+	)
+}
 
 const setIndicator2 = currentItemId => {
 	const itemIdList = titleList.map(v => `#${v}`)
@@ -114,12 +114,15 @@ const setIndicator2 = currentItemId => {
 					cutItemWidth = v.width
 				}
 			})
-			console.log(cutItemWidth)
 			cutItemCenterPoint = left + cutItemWidth / 2
 			centerPoint = cutItemCenterPoint - indicatorWidth / 2
 			indicatorLeft.value = `${centerPoint}px`
 		}
 	)
+}
+
+const scroll = (e) => {
+	console.log('scroll', e)
 }
 
 onMounted(() => {
@@ -142,31 +145,31 @@ onMounted(() => {
 				class="scroll-view" :scroll-x="true" :scroll-into-view="activeTitle" >
 					<view v-for="title in titleList" :key="title" :id="title" 
 					:class="{active: activeTitle === title}" class="scroll-view-item"
-					@click="clickChange(title)">
+					@click="clickChange(title)"
+					@scroll="scroll">
 					{{ titleMapName[title] }}
 					</view>
 			</scroll-view>
 			<view id="indicator" class="indicator"></view>
 		</view>
 
-		<view>
-			<swiper class="swiper" :current-item-id="activeTitle" @change="swiperChange">
-				<swiper-item v-for="comp in slotList" class="swiper-item"
-						:key="comp.props.title" :item-id="comp.props.title" :id="comp.props.title">
-						<component :is="comp" :key="comp.props.title" />
-				</swiper-item>
-			</swiper>
-		</view>
+		<swiper class="swiper" :current-item-id="activeTitle" @change="swiperChange">
+			<swiper-item v-for="comp in slotList" class="swiper-item"
+					:key="comp.props.title" :item-id="comp.props.title" :id="comp.props.title">
+					<component class="swiper-item__content" :is="comp" :key="comp.props.title" />
+			</swiper-item>
+		</swiper>
 
 	</view>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .tabs {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 4rpx;
+	flex-grow: 1;
 	.scroll-view-wrapper {
 		width: 100%;
 		position: relative;
@@ -214,8 +217,20 @@ onMounted(() => {
 	}
 
 	.swiper {
-		border: 1px solid red;
+		flex-grow: 1;
 		&-item {
+			display: flex;
+			flex-flow: column;
+			:deep(.swiper-item__content) {
+				overflow: auto;
+			}
+			& ::-webkit-scrollbar {
+				display: none;
+				width: 0 !important;
+				height: 0 !important;
+				-webkit-appearance: none;
+				background: transparent;
+			}
 		}
 	}
 }

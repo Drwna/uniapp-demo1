@@ -18,12 +18,16 @@
 <template>
 	<cell title="主界面" is-link :go="goMainPage" />
 	<cell title="主界面(art)" is-link :go="goArtPage" />
-	<cell title="登录" is-link to="/pages/login/login" />
-	<cell title="注册" is-link to="/pages/register/register"/>
+	<cell title="手机号注册及登录" is-link to="/pages/phone/phone" />
+	<cell title="邮箱注册及登录" is-link to="/pages/email/email"  />
+	<cell title="列表" is-link to="/pages/listPage/listPage"/>
 	<!-- <cell title="canvas 测试" is-link to="/pages/canvas/canvas"/> -->
+	<!-- #ifdef H5 -->
+	<view style="margin:20rpx;">当前版本：{{ appInfo.newestVersion }}</view>
+	<!-- #endif -->
+	<!-- <view style="margin:20rpx; display: none;">最新版本：{{ appInfo.newestVersion }}</view> -->
 	<!-- #ifdef APP-PLUS -->
 	<view style="margin:20rpx;">当前版本：{{ appInfo.currentVersion }}</view>
-	<view style="margin:20rpx;">最新版本：{{ appInfo.newestVersion }}</view>
 	<ProgressBar 
 		v-model:progressBarVisible="appInfo.upgradeState.isLoading" 
 		v-model:progress="appInfo.upgradeState.percent"

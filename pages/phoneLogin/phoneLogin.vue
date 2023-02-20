@@ -8,7 +8,7 @@ import { useUserStore } from '@/store/user.js'
 
 const showPopup = ref(false)
 const formData = reactive({
-  mobilePhoneNo: '17864270724',
+  mobilePhoneNo: '',
   identifyCode: '',
 })
 const rules = reactive({
@@ -106,7 +106,7 @@ const onConfirm = async (val) => {
       </uni-forms>
       <button type="primary" @click="submit">提交</button>
     </view>
-    <verify v-model="showPopup" :phone="formData.mobilePhoneNo" @onConfirm="onConfirm" />
+    <verify v-model="showPopup" :phoneOrEmail="formData.mobilePhoneNo" @onConfirm="onConfirm" />
   </view>
 </template>
 

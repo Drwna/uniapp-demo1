@@ -11,6 +11,13 @@ export default defineConfig({
 				rewrite: (path) => {
 					return path.replace(/^\/remote/, '')
 				}
+			},
+			'/api': {
+				target: "http://www.safereborn.com:8084/",
+				changeOrigin: true,
+				rewrite: (path) => {
+					return path.replace(/^\/api/, '')
+				}
 			}
 		}
 	}

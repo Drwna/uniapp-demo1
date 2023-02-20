@@ -7,7 +7,7 @@ import { registerByPhone } from '@/util/api'
 
 const showPopup = ref(false)
 const formData = reactive({
-	mobilePhoneNo: '17864270724',
+	mobilePhoneNo: '',
 	identifyCode: '',
 	userPwd: '',
   userPwd2: '',
@@ -149,7 +149,7 @@ const onConfirm = async (val) => {
       </uni-forms>
       <button type="primary" @click="submit">提交</button>
     </view>
-    <verify ref="v" v-model="showPopup" :phone="formData.mobilePhoneNo" @onConfirm="onConfirm" />
+    <verify ref="v" v-model="showPopup" :phoneOrEmail="formData.mobilePhoneNo" @onConfirm="onConfirm" />
   </view>
 </template>
 
