@@ -83,6 +83,21 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "pages/phoneLoginByPwd/phoneLoginByPwd",
+			"style": {
+				"navigationBarTitleText": "手机号",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/phoneResetPwd/phoneResetPwd",
+			"style": {
+				"navigationBarTitleText": "重置密码",
+				"enablePullDownRefresh": false
+			}
+
 		}
 	],
 	"globalStyle": {

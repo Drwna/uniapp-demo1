@@ -14,12 +14,20 @@ const URL = {
 	GetCurrUserInfo: `${baseUrl}/auth/facadeauth/getCurrUserInfo`,
   LoginByPwd: `${baseUrl}/auth/facadeauth/login`,
   SendRegisterEmail: `${baseUrl}auth/facadeauth/sendRegisterEmail`,
-	// '/auth/facadeauth/getIdentifyCodeForEMail'
-  getIdentifyCodeForEMail: `${baseUrl}/auth/facadeauth/getIdentifyCodeForEMail`,
+  GetIdentifyCodeForEMail: `${baseUrl}/auth/facadeauth/getIdentifyCodeForEMail`,
+	ResetUserPwdByPhone: `${baseUrl}/auth/facadeauth/resetUserPwdByPhone`
+}
+
+export const resetUserPwdByPhone = (objParam = {
+	mobilePhoneNo: undefined,
+	userPwd: undefined,
+	identifyCode: undefined
+}) => {
+	return uni.$post(URL.ResetUserPwdByPhone, objParam)
 }
 
 export const getIdentifyCodeForEMail = (objParam = { userEMail: undefined }) => {
-	return uni.$post(URL.getIdentifyCodeForEMail, objParam)
+	return uni.$post(URL.GetIdentifyCodeForEMail, objParam)
 }
 
 export const sendRegisterEmail = (objParam = {
